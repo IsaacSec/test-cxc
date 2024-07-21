@@ -20,8 +20,8 @@ CREATE TABLE test.ethnicity (
 );
 
 CREATE TABLE test.gender (
-                             id bigserial NOT NULL,
-                             name varchar(50) NOT NULL,
-                             created_at timestamp(0) NOT NULL DEFAULT timezone('CDT'::text, now()),
-                             CONSTRAINT gender_pk PRIMARY KEY (id)
+     id bigserial NOT NULL,
+     name varchar(50) NOT NULL,
+     created_at timestamp(0) NOT NULL DEFAULT timezone('CDT'::text, now()),
+     CONSTRAINT gender_pk PRIMARY KEY (id)
 );
