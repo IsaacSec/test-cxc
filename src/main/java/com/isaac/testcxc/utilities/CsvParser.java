@@ -1,6 +1,7 @@
 package com.isaac.testcxc.utilities;
 
-import com.isaac.testcxc.entities.Catalog;
+import com.isaac.testcxc.entities.CsvCatalog;
+import com.isaac.testcxc.entities.CsvEmployee;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import lombok.extern.slf4j.Slf4j;
@@ -16,9 +17,14 @@ import java.util.List;
 @Component
 public class CsvParser {
 
-    public List<Catalog> parseToCatalog(MultipartFile file) {
+    public List<CsvCatalog> parseToCatalog(MultipartFile file) {
 
-        return this.parse(file, ';', Catalog.class);
+        return this.parse(file, ';', CsvCatalog.class);
+    }
+
+    public List<CsvEmployee> parseToEmployee(MultipartFile file) {
+
+        return this.parse(file, ',', CsvEmployee.class);
     }
 
     private <T> List<T> parse(MultipartFile file, char separator, Class<T> type) {

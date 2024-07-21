@@ -34,7 +34,7 @@ public class CatalogService {
         this.professionRepository = professionRepository;
     }
 
-    public CatalogResult saveCatalog(Stream<Catalog> catalogs) {
+    public CatalogResult saveCatalog(Stream<CsvCatalog> catalogs) {
         List<Agency> agencies = new ArrayList<>();
         List<Ethnicity> ethnicities = new ArrayList<>();
         List<Gender> genders = new ArrayList<>();

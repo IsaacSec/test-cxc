@@ -1,6 +1,6 @@
 package com.isaac.testcxc.controllers;
 
-import com.isaac.testcxc.entities.Catalog;
+import com.isaac.testcxc.entities.CsvCatalog;
 import com.isaac.testcxc.responses.CatalogResult;
 import com.isaac.testcxc.services.CatalogService;
 import com.isaac.testcxc.utilities.CsvParser;
@@ -25,7 +25,7 @@ public class CatalogController {
     private CatalogService catalogService;
 
     @Autowired
-    CatalogController(CsvParser csvParser, CatalogService catalogService) {
+    public CatalogController(CsvParser csvParser, CatalogService catalogService) {
         this.csvParser = csvParser;
         this.catalogService = catalogService;
     }
@@ -35,7 +35,7 @@ public class CatalogController {
 
         log.info("Start catalog upload");
 
-        List<Catalog> catalogs = csvParser.parseToCatalog(file);
+        List<CsvCatalog> catalogs = csvParser.parseToCatalog(file);
         CatalogResult result = catalogService.saveCatalog(catalogs.stream());
 
         return Mono.just(result);
